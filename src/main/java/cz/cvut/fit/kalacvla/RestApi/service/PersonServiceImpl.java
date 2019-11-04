@@ -48,4 +48,9 @@ public class PersonServiceImpl implements PersonService {
     public Person getById(int id) {
         return personDAO.getById(id);
     }
+
+    @Override
+    public void addPassportToPerson(int id) {
+        personDAO.addPassportToPerson(id);
+    }
 }

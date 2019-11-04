@@ -10,5 +10,8 @@ public interface PersonDAO {
     void add(Person person);
     void delete(Person person);
     void edit(Person person);
+
+    void addPassportToPerson(int id);
+
     Person getById(int id);
 }

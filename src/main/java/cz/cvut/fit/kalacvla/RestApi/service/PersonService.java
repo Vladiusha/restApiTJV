@@ -11,4 +11,5 @@ public interface PersonService {
     void delete(Person person);
     void edit(Person person);
     Person getById(int id);
+    void addPassportToPerson(int id);
 }

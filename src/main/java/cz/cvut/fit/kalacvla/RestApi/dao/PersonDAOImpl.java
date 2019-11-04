@@ -1,6 +1,7 @@
 package cz.cvut.fit.kalacvla.RestApi.dao;
 
 
+import cz.cvut.fit.kalacvla.RestApi.model.Passport;
 import cz.cvut.fit.kalacvla.RestApi.model.Person;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -43,6 +44,16 @@ public class PersonDAOImpl implements PersonDAO {
     public void edit(Person person) {
         Session session = sessionFactory.getCurrentSession();
         session.update(person);
+    }
+
+    @Override
+    public void addPassportToPerson(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        Passport passport = session.get(Passport.class, id);
+        session.get(Person.class, id).setPassport( passport );
+        Person person = session.get(Person.class, id);
+        session.update(person);
+        return;
     }
 
     @Override

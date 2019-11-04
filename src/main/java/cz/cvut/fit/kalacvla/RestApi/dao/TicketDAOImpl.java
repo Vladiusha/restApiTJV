@@ -23,7 +23,8 @@ public class TicketDAOImpl implements TicektDAO {
     @SuppressWarnings("unchecked")
     public List<Ticket> allTickets() {
         Session session = sessionFactory.getCurrentSession();
-        return session.createQuery("FROM TICKETS ").list();
+        List<Ticket> tickets = session.createQuery("FROM Tickets").list();
+        return session.createQuery("FROM tickets").list();
     }
 
     @Override

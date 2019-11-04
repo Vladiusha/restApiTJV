@@ -4,11 +4,7 @@ import cz.cvut.fit.kalacvla.RestApi.model.Person;
 import cz.cvut.fit.kalacvla.RestApi.service.PersonService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
@@ -44,6 +40,10 @@ public class PersonController {
         return personService.allPersons();
     }
 
+    @PostMapping("/persons/passport/{id}")
+    public void addPassportToPerson( @PathVariable(value = "id") int id ) {
+        personService.addPassportToPerson(id);
+    }
 
     public List<Person> deletePerson1(@PathVariable(value = "id") int id) {
         personService.delete(personService.getById(id));

@@ -21,9 +21,31 @@ public class Person {
 
     @Column(name = "AGE")
     private int age;
-    /*
-    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL, orphanRemoval = true)
+
+
+    @OneToOne
+    @JoinColumn(name = "passport_number")
+    private Passport passport;
+
+
+    public Passport getPassport() {
+        return passport;
+    }
+
+    public void setPassport(Passport passport) {
+        this.passport = passport;
+    }
+
+   /* @OneToMany(mappedBy = "person", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Ticket> tickets;
+
+    public List<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(List<Ticket> tickets) {
+        this.tickets = tickets;
+    }
     */
     public int getId() {
         return id;
