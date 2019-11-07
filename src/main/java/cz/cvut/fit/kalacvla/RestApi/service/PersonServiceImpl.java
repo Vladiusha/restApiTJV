@@ -50,6 +50,7 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
+    @Transactional
     public void addPassportToPerson(int id) {
         personDAO.addPassportToPerson(id);
     }

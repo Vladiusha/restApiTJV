@@ -15,6 +15,8 @@ public class PersonDAOImpl implements PersonDAO {
 
     private SessionFactory sessionFactory;
 
+    
+
     @Autowired
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
@@ -49,9 +51,9 @@ public class PersonDAOImpl implements PersonDAO {
     @Override
     public void addPassportToPerson(int id) {
         Session session = sessionFactory.getCurrentSession();
-        Passport passport = session.get(Passport.class, id);
-        session.get(Person.class, id).setPassport( passport );
         Person person = session.get(Person.class, id);
+        person.setPassport( session.get(Passport.class, id) );
+
         session.update(person);
         return;
     }
